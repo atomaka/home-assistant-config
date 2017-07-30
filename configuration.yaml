@@ -1,0 +1,112 @@
+homeassistant:
+  name: Home
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  elevation: !secret homeassistant_elevation
+  time_zone: !secret homeassistant_timezone
+  unit_system: metric
+
+frontend:
+
+config:
+
+http:
+  api_password: !secret http_api_password
+  base_url: !secret http_base_url
+  trusted_networks:
+    - !secret http_trusted_networks_1
+    - !secret http_trusted_networks_2
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
+
+updater:
+  include_used_components: true
+
+history:
+
+logbook:
+
+# mqtt used for smartbridge integration
+# https://github.com/stjohnjohnson/smartthings-mqtt-bridge
+mqtt:
+  broker: 192.168.1.20
+
+sun:
+
+tts:
+  platform: google
+
+automation: !include_dir_merge_list automations
+group: !include_dir_merge_list groups
+switch: !include_dir_merge_list switches
+
+# notifications
+notify:
+- name: pushetta
+  platform: pushetta
+  api_key: !secret notify_pushetta_api_key
+  channel_name: !secret notify_pushetta_atomaka_channel_name
+
+ecobee:
+  api_key: !secret ecobee_api_key
+
+sensor 1:
+  platform: mqtt
+  name: 'Garage Lock Battery'
+  state_topic: 'smartthings/Garage Lock/battery'
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
+  retain: true
+  optimistic: true
+sensor 2:
+  platform: mqtt
+  name: 'Andrew'
+  state_topic: 'smartthings/Andrew/presence'
+  retain: true
+  optimistic: true
+sensor 3:
+  platform: mqtt
+  name: 'Stacey'
+  state_topic: 'smartthings/Stacey/presence'
+  retain: true
+  optimistic: true
+
+# locks
+# garage
+lock 1:
+  platform: mqtt
+  name: 'Garage Lock'
+  state_topic: 'smartthings/Garage Lock/lock'
+  command_topic: 'smartthings/Garage Lock/lock'
+  payload_unlock: 'unlocked'
+  payload_lock: 'locked'
+  retain: true
+  optimistic: true
+
+# garage
+# https://github.com/stjohnjohnson/smartthings-mqtt-bridge/issues/38
+# https://home-assistant.io/components/cover.mqtt/
+cover:
+  platform: mqtt
+  name: 'Garage'
+  state_topic: 'smartthings/Garage/contact'
+  command_topic: 'smartthings/Garage/door'
+  state_open: 'open'
+  state_closed: 'closed'
+  payload_open: 'open'
+  payload_close: 'closed'
+  retain: true
+  optimistic: true
+
+# chromecasts
+# Running in Docker without host network; auto-discovery will not work
+# https://github.com/home-assistant/home-assistant/issues/1743
+media_player 1:
+  platform: cast
+  host: !secret media_player_1_host
+media_player 2:
+  platform: cast
+  host: !secret media_player_2_host
+media_player 3:
+  platform: cast
+  host: !secret media_player_3_host

@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: Landscape Lights
+  command_topic: 'smartthings/Outdoor Lights/switch'
+  state_topic: 'smartthings/Outdoor Lights/switch'
+  retain: true
+  optimistic: true
+  payload_on: 'on'
+  payload_off: 'off'
