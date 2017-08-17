@@ -7,3 +7,8 @@ download:
 
 test:
 	docker run -v ${CURDIR}:/config homeassistant/home-assistant:latest python -m homeassistant -c /config --script check_config
+
+update:
+	docker pull homeassistant/home-assistant
+	$(MAKE) test
+	ssh 192.168.1.20 "cd /home/atomaka/docker && docker-compose pull ha && docker-compose up -d --no-deps --build ha"
