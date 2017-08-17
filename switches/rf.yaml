@@ -1,0 +1,38 @@
+- platform: mqtt
+  name: Master Night Light
+  command_topic: switch/rf/1
+  payload_on: !secret switches_rf_1_payload_on
+  payload_off: !secret switches_rf_1_payload_off
+  optimistic: false
+  qos: 0
+  retain: true
+- platform: mqtt
+  name: Master Fan
+  command_topic: switch/rf/2
+  payload_on: !secret switches_rf_2_payload_on
+  payload_off: !secret switches_rf_2_payload_off
+  optimistic: false
+  qos: 0
+  retain: true
+- platform: mqtt
+  command_topic: switch/rf/3
+  payload_on: !secret switches_rf_3_payload_on
+  payload_off: !secret switches_rf_3_payload_off
+  optimistic: false
+  qos: 0
+  retain: true
+- platform: mqtt
+  command_topic: switch/rf/4
+  payload_on: !secret switches_rf_4_payload_on
+  payload_off: !secret switches_rf_4_payload_off
+  optimistic: false
+  qos: 0
+  retain: true
+- platform: mqtt
+  name: Living Room Lamp
+  command_topic: switch/rf/5
+  payload_on: !secret switches_rf_5_payload_on
+  payload_off: !secret switches_rf_5_payload_off
+  optimistic: false
+  qos: 0
+  retain: true
