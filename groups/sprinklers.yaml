@@ -1,0 +1,6 @@
+Sprinklers:
+  entities:
+    - switch.front_door_garden
+    - switch.northwest
+    - switch.northeast
+    - switch.backyard

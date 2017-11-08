@@ -1,0 +1,9 @@
+Climate:
+  control: hidden
+  entities:
+    - sensor.weather_temperature
+    - sensor.weather_precip_probability
+    - climate.main_floor
+    - sensor.living_room_temperature
+    - sensor.master_bedroom_temperature
+    - sensor.main_floor_temperature

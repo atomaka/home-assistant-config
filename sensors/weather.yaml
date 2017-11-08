@@ -1,0 +1,6 @@
+- platform: darksky
+  name: Weather
+  api_key: !secret sensors_darksky_api_key
+  monitored_conditions:
+    - temperature
+    - precip_probability

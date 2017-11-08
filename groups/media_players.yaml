@@ -1,0 +1,5 @@
+Media Players:
+  control: hidden
+  entities:
+    - media_player.main
+    - media_player.master
