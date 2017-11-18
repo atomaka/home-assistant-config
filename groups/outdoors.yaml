@@ -1,4 +1,4 @@
 Outdoors:
   control: hidden
   entities:
-    - switch.landscape_lights
+    - switch.landscape_lights_switch

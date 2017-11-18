@@ -7,7 +7,7 @@
     from: 'above_horizon'
   action:
     service: homeassistant.turn_on
-    entity_id: switch.landscape_lights
+    entity_id: switch.landscape_lights_switch
 - alias: Turn off outdoor lights in day
   hide_entity: true
   trigger:
@@ -17,4 +17,4 @@
     from: 'below_horizon'
   action:
     service: homeassistant.turn_off
-    entity_id: switch.landscape_lights
+    entity_id: switch.landscape_lights_switch

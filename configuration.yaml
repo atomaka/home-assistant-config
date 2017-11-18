@@ -111,3 +111,7 @@ media_player 2:
 media_player 3:
   platform: cast
   host: !secret media_player_3_host
+
+zwave:
+  usb_path: /dev/zwave
+  network_key: !secret zwave_network_key
