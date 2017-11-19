@@ -1,5 +1,5 @@
 Doors:
   control: hidden
   entities:
-    - lock.garage_lock
+    - lock.garage_lock_locked
     - cover.garage

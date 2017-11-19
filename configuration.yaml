@@ -51,14 +51,6 @@ notify:
 ecobee:
   api_key: !secret ecobee_api_key
 
-sensor 1:
-  platform: mqtt
-  name: 'Garage Lock Battery'
-  state_topic: 'smartthings/Garage Lock/battery'
-  unit_of_measurement: "%"
-  value_template: '{{ value_json.batt }}'
-  retain: true
-  optimistic: true
 sensor 2:
   platform: mqtt
   name: 'Andrew'
@@ -69,18 +61,6 @@ sensor 3:
   platform: mqtt
   name: 'Stacey'
   state_topic: 'smartthings/Stacey/presence'
-  retain: true
-  optimistic: true
-
-# locks
-# garage
-lock 1:
-  platform: mqtt
-  name: 'Garage Lock'
-  state_topic: 'smartthings/Garage Lock/lock'
-  command_topic: 'smartthings/Garage Lock/lock'
-  payload_unlock: 'unlocked'
-  payload_lock: 'locked'
   retain: true
   optimistic: true
 
