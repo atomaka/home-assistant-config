@@ -1,0 +1,12 @@
+test_view:
+  view: yes
+  entities:
+    - group.battery_levels
+    - group.climate
+    - group.doors
+    - group.living_room
+    - group.master_bedroom
+    - group.media_players
+    - group.outdoors
+    - group.sprinklers
+    - group.battery_levels

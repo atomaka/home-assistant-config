@@ -1,0 +1,3 @@
+Battery Levels:
+  entities:
+    - sensor.garage_lock_battery

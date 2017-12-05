@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    garage_lock_battery:
+      friendly_name: "Garage Lock Battery"
+      unit_of_measurement: '%'
+      value_template: "{{ states.zwave.garage_lock.attributes.battery_level }}"
