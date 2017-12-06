@@ -1,3 +1,5 @@
 Battery Levels:
   entities:
     - sensor.garage_lock_battery
+    - sensor.safety_alarm_living_room_battery
+    - sensor.safety_alarm_hallway_battery

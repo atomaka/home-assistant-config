@@ -1,0 +1,4 @@
+Safety Alarms:
+  entities:
+    - sensor.safety_alarm_living_room
+    - sensor.safety_alarm_hallway

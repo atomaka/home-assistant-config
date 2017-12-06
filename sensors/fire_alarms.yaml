@@ -1,0 +1,52 @@
+- platform: template
+  sensors:
+    safety_alarm_living_room:
+      value_template: >-
+        {%- if is_state("sensor.safety_alarm_living_room_alarm_level", "0") %}
+          Idle
+        {%else%}
+          {%- if is_state("sensor.safety_alarm_living_room_alarm_type", "1") %}
+            Fire
+          {%- elif is_state("sensor.safety_alarm_living_room_alarm_type", "2") %}
+            C02
+          {%- elif is_state("sensor.safety_alarm_living_room_alarm_type", "12") %}
+            Testing
+          {%- elif is_state("sensor.safety_alarm_living_room_alarm_type", "13") %}
+            Idle
+          {% else %}
+            Unknown
+          {%- endif %}
+        {%endif%}
+      friendly_name: 'Safety Alarm (Living Room)'
+- platform: template
+  sensors:
+    safety_alarm_hallway:
+      value_template: >-
+        {%- if is_state("sensor.safety_alarm_hallway_alarm_level", "0") %}
+          Idle
+        {%else%}
+          {%- if is_state("sensor.safety_alarm_hallway_alarm_type", "1") %}
+            Fire
+          {%- elif is_state("sensor.safety_alarm_hallway_alarm_type", "2") %}
+            C02
+          {%- elif is_state("sensor.safety_alarm_hallway_alarm_type", "12") %}
+            Testing
+          {%- elif is_state("sensor.safety_alarm_hallway_alarm_type", "13") %}
+            Idle
+          {% else %}
+            Unknown
+          {%- endif %}
+        {%endif%}
+      friendly_name: 'Safety Alarm (Hallway)'
+- platform: template
+  sensors:
+    safety_alarm_living_room_battery:
+      value_template: '{{states.zwave.safety_alarm_living_room.attributes.battery_level}}'
+      friendly_name: 'Safety Alarm (Living Room) Battery'
+      unit_of_measurement: '%'
+- platform: template
+  sensors:
+    safety_alarm_hallway_battery:
+      value_template: '{{states.zwave.safety_alarm_hallway.attributes.battery_level}}'
+      friendly_name: 'Safety Alarm (Hallway) Battery'
+      unit_of_measurement: '%'
