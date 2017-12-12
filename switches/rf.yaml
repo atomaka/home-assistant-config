@@ -22,6 +22,7 @@
   qos: 0
   retain: true
 - platform: mqtt
+  name: Christmas Tree
   command_topic: switch/rf/4
   payload_on: !secret switches_rf_4_payload_on
   payload_off: !secret switches_rf_4_payload_off

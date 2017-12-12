@@ -11,3 +11,4 @@ test_view:
     - group.outdoors
     - group.sprinklers
     - group.battery_levels
+    - group.christmas
