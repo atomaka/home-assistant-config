@@ -5,6 +5,12 @@ homeassistant:
   elevation: !secret homeassistant_elevation
   time_zone: !secret homeassistant_timezone
   unit_system: metric
+  customize:
+    switch.outdoor_1_switch:
+      friendly_name: Roof Lining
+    switch.outdoor_2_switch:
+      friendly_name: Trees
+
 
 frontend:
 

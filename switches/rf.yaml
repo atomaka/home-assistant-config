@@ -15,6 +15,7 @@
   qos: 0
   retain: true
 - platform: mqtt
+  name: Christmas Window Lights
   command_topic: switch/rf/3
   payload_on: !secret switches_rf_3_payload_on
   payload_off: !secret switches_rf_3_payload_off

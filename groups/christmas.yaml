@@ -1,3 +1,6 @@
 Christmas:
   entities:
     - switch.christmas_tree
+    - switch.christmas_window_lights
+    - switch.outdoor_1_switch
+    - switch.outdoor_2_switch
