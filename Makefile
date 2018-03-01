@@ -15,3 +15,4 @@ update:
 	docker pull homeassistant/home-assistant
 	$(MAKE) test
 	ssh 192.168.1.20 "cd /home/atomaka/docker && docker-compose pull ha && docker-compose up -d --no-deps --build ha"
+	scp 192.168.1.20:/mnt/data/docker/ha/config/.HA_VERSION .
