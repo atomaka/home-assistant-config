@@ -83,18 +83,7 @@ cover:
   retain: true
   optimistic: true
 
-# chromecasts
-# Running in Docker without host network; auto-discovery will not work
-# https://github.com/home-assistant/home-assistant/issues/1743
-media_player 1:
-  platform: cast
-  host: !secret media_player_1_host
-media_player 2:
-  platform: cast
-  host: !secret media_player_2_host
-media_player 3:
-  platform: cast
-  host: !secret media_player_3_host
+discovery:
 
 zwave:
   usb_path: /dev/zwave
