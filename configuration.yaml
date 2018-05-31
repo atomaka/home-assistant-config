@@ -19,8 +19,8 @@ config:
 http:
   api_password: !secret http_api_password
   base_url: !secret http_base_url
-  ip_ban_enabled: True
-  use_x_forwarded_for: True
+  ip_ban_enabled: true
+  use_x_forwarded_for: true
   login_attempts_threshold: 3
 
 updater:
@@ -33,7 +33,7 @@ logbook:
 # mqtt used for smartbridge integration
 # https://github.com/stjohnjohnson/smartthings-mqtt-bridge
 mqtt:
-  broker: 192.168.1.20
+  broker: !secret server_ip
 
 sun:
 
@@ -55,19 +55,6 @@ notify:
 ecobee:
   api_key: !secret ecobee_api_key
 
-sensor 2:
-  platform: mqtt
-  name: 'Andrew'
-  state_topic: 'smartthings/Andrew/presence'
-  retain: true
-  optimistic: true
-sensor 3:
-  platform: mqtt
-  name: 'Stacey'
-  state_topic: 'smartthings/Stacey/presence'
-  retain: true
-  optimistic: true
-
 # garage
 # https://github.com/stjohnjohnson/smartthings-mqtt-bridge/issues/38
 # https://home-assistant.io/components/cover.mqtt/
@@ -82,6 +69,18 @@ cover:
   payload_close: 'closed'
   retain: true
   optimistic: true
+
+device_tracker:
+  - platform: unifi
+    host: !secret server_ip
+    port: 8443
+    verify_ssl: false
+    username: !secret device_tracker_unifi_username
+    password: !secret device_tracker_unifi_password
+    ssid_filter:
+    - !secret wifi_ssid
+    new_device_defaults:
+      track_new_devices: false
 
 discovery:
 
