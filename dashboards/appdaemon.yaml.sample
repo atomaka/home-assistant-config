@@ -1,0 +1,12 @@
+log:
+  logfile: STDOUT
+  errorfile: STDERR
+appdaemon:
+  threads: 10
+  plugins:
+    HASS:
+      type: hass
+      ha_url: HA_URL
+      ha_key: HA_PASSWORD
+hadashboard:
+  dash_url: http://DASH_URL:DASH_PORT

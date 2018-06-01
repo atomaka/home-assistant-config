@@ -2,3 +2,5 @@
 secrets.yaml
 *.conf
 *.log
+dashboards/appdaemon.yaml
+RF.txt
