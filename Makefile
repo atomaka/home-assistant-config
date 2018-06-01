@@ -1,5 +1,5 @@
 deploy: test config
-	rsync -a -e "ssh" --rsync-path="sudo rsync" ./ 192.168.1.20:/mnt/data/docker/ha/config/
+	rsync --archive --recursive --rsh="ssh" --exclude-from ".rsync-exclude" --rsync-path="sudo rsync" ./ 192.168.1.20:/mnt/data/docker/ha/config/
 	ssh 192.168.1.20 "cd /home/atomaka/docker && docker-compose restart ha"
 
 download:

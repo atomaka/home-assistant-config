@@ -1,0 +1,13 @@
+.rsync_exclude
+*.conf
+*.db*
+*.git*
+*.log
+*.sqlite
+*.xml
+entity_registry.yaml
+ip_bans.yaml
+OZW_Log.txt
+secrets.yaml.sample
+README.md
+tts/
