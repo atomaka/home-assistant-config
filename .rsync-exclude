@@ -12,6 +12,5 @@ secrets.yaml.sample
 README.md
 RF.txt
 tts/
-dashboards/appdaemon.yaml.sample
 dashboards/apps/__pycache__
 dashboards/compiled
