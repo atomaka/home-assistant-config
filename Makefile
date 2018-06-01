@@ -10,6 +10,7 @@ config:
 
 test:
 	docker run -v ${CURDIR}:/config homeassistant/home-assistant:latest python -m homeassistant -c /config --script check_config
+	docker run -v ${CURDIR}:/config homeassistant/home-assistant:latest python -m homeassistant --version > .HA_VERSION
 
 update:
 	docker pull homeassistant/home-assistant
