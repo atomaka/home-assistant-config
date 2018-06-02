@@ -6,9 +6,6 @@ widget_dimensions: [130, 128]
 widget_margins: [3, 3]
 columns: 3
 
-label:
-    widget_type: label
-    text: L
 label1:
     widget_type: label
     text: "1"
@@ -18,24 +15,6 @@ label2:
 label3:
     widget_type: label
     text: "3"
-label4:
-    widget_type: label
-    text: "4"
-label5:
-    widget_type: label
-    text: "5"
-label6:
-    widget_type: label
-    text: "6"
-label7:
-    widget_type: label
-    text: "7"
-label8:
-    widget_type: label
-    text: "8"
-label9:
-    widget_type: label
-    text: "9"
 ha:
   widget_type: navigate
   url: https://ha.atomaka.com
@@ -70,6 +49,23 @@ master_fan:
   widget_type: switch
   title: Master Fan
   entity: switch.master_fan
+potty_time:
+  widget_type: icon
+  title: Dog Status
+  entity: sensor.dog_out_status
+  icons:
+    "recent":
+      icon: fa-smile-o
+      style: "color: green"
+    "warning":
+      icon: fa-meh-o
+      style: "color: yellow"
+    "danger":
+      icon: fa-frown-o
+      style: "color: red"
+    "unknown":
+      icon: question-circle-o
+      style: "color: gray"
 andrew:
   widget_type: device_tracker
   entity: device_tracker.andrew
@@ -82,8 +78,8 @@ stacey:
   icon_off: fa-female
 
 layout:
-  - andrew(1x1), label6(2x2)
+  - andrew(1x1), label1(2x2)
   - stacey(1x1)
-  - garage_lock(1x1), garage_door(1x1), label3(1x1)
-  - label1(1x1), master_fan(1x1), master_night_light(1x1)
+  - potty_time(1x1), garage_lock(1x1), garage_door(1x1)
+  - master_night_light(1x1), label2(1x1), label3(1x1)
   - ha(1x1), outside_temperature(1x1), house_temperature(1x1)

@@ -1,0 +1,23 @@
+- platform: mqtt
+  name: Dog Out Time
+  state_topic: "dog/tracker/out_time"
+- platform: template
+  sensors:
+    now_seconds:
+      value_template: "{{ as_timestamp(now()) | int }}"
+    dog_out_seconds:
+      value_template: "{{ as_timestamp(states('sensor.dog_out_time')) | int }}"
+    dog_out_diff_seconds:
+      value_template: "{{ states('sensor.now_seconds') | int - states('sensor.dog_out_seconds') | int }}"
+    dog_out_status:
+      friendly_name: "Dog Status"
+      value_template: >-
+        {% if states('sensor.dog_out_diff_seconds') | int < 7200 %}
+          recent
+        {% elif states('sensor.dog_out_diff_seconds') | int < 14400 %}
+          warning
+        {% elif states('sensor.dog_out_diff_seconds') | int >= 14400 %}
+          danger
+        {% else %}
+          unknown
+        {% endif %}
