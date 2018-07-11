@@ -88,3 +88,7 @@ discovery:
 zwave:
   usb_path: /dev/zwave
   network_key: !secret zwave_network_key
+
+rachio:
+  api_key: !secret switch_rachio_api_key
+  hass_url_override: !secret server_url
