@@ -1,0 +1,7 @@
+#!/bin/bash
+
+bin/test
+bin/config
+
+rsync --verbose --delete --archive --recursive --rsh="ssh" --exclude-from ".rsync-exclude" --rsync-path="sudo rsync" ./ 192.168.1.20:/mnt/data/docker/ha/config/
+ssh 192.168.1.20 "cd /home/atomaka/docker && docker-compose restart ha hadashboard"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker run -v $(pwd):/config homeassistant/home-assistant:latest python -m homeassistant -c /config --script check_config
+docker run -v $(pwd):/config homeassistant/home-assistant:latest python -m homeassistant --version > .HA_VERSION
+printf %s "$(cat .HA_VERSION)" > .HA_VERSION

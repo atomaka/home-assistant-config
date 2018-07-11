@@ -14,3 +14,5 @@ RF.txt
 tts/
 dashboards/apps/__pycache__
 dashboards/compiled
+bin/*
+bin/

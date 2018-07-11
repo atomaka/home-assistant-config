@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sed 's/:.*$/:/g' secrets.yaml > secrets.yaml.sample
+sed 's/:.*$/:/g' dashboards/secrets.yaml > dashboards/secrets.yaml.sample
