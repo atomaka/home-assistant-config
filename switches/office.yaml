@@ -1,0 +1,6 @@
+- platform: tplink
+  name: Office Light Switch
+  host: !secret switches_office_light_switch_host
+- platform: tplink
+  name: Office Plug
+  host: !secret switches_office_plug_host
