@@ -1,0 +1,22 @@
+- alias: Turn on Christmas lights at night
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: sun.sun
+    to: 'below_horizon'
+    from: 'above_horizon'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.outdoor_1_switch
+    - service: homeassistant.turn_on
+      entity_id: switch.outdoor_2_switch
+- alias: Turn off Christmas lights in day
+  hide_entity: true
+  trigger:
+    platform: time
+    at: "01:00:00"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.outdoor_1_switch
+    - service: homeassistant.turn_on
+      entity_id: switch.outdoor_2_switch
