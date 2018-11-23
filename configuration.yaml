@@ -10,6 +10,9 @@ homeassistant:
       friendly_name: Roof Lining
     switch.outdoor_2_switch:
       friendly_name: Trees
+  # auth_providers:
+  # - type: legacy_api_password
+  # - type: homeassistant
 
 
 frontend:
@@ -22,8 +25,9 @@ http:
   ip_ban_enabled: true
   use_x_forwarded_for: true
   trusted_proxies:
-    - !secret http_trusted_networks_1
-    - !secret http_trusted_networks_2
+    - !secret http_trusted_proxies_1
+    - !secret http_trusted_proxies_2
+    - !secret http_trusted_proxies_3
   login_attempts_threshold: 3
 
 updater:
@@ -84,13 +88,16 @@ device_tracker:
     ssid_filter:
     - !secret wifi_ssid
     new_device_defaults:
-      track_new_devices: false
+      track_new_devices: False
 
 discovery:
 
 zwave:
   usb_path: /dev/zwave
   network_key: !secret zwave_network_key
+  polling_interval: 30000
+  debug: true
+  autoheal: true
 
 rachio:
   api_key: !secret switch_rachio_api_key
