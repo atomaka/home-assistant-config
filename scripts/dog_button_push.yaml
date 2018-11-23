@@ -1,7 +1,0 @@
-out_time:
-  sequence:
-    - service: mqtt.publish
-      data_template:
-        topic: dog/tracker/out_time
-        payload: '{{now()}}'
-        retain: true

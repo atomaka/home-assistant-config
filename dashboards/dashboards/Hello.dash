@@ -15,6 +15,9 @@ label2:
 label3:
     widget_type: label
     text: "3"
+label4:
+    widget_type: label
+    text: "4"
 ha:
   widget_type: navigate
   url: https://ha.atomaka.com
@@ -49,23 +52,6 @@ master_fan:
   widget_type: switch
   title: Master Fan
   entity: switch.master_fan
-potty_time:
-  widget_type: icon
-  title: Dog Status
-  entity: sensor.dog_out_status
-  icons:
-    "recent":
-      icon: fa-smile-o
-      style: "color: green"
-    "warning":
-      icon: fa-meh-o
-      style: "color: yellow"
-    "danger":
-      icon: fa-frown-o
-      style: "color: red"
-    "unknown":
-      icon: question-circle-o
-      style: "color: gray"
 andrew:
   widget_type: device_tracker
   entity: device_tracker.andrew
@@ -80,6 +66,6 @@ stacey:
 layout:
   - andrew(1x1), label1(2x2)
   - stacey(1x1)
-  - potty_time(1x1), garage_lock(1x1), garage_door(1x1)
+  - label4(1x1), garage_lock(1x1), garage_door(1x1)
   - master_night_light(1x1), label2(1x1), label3(1x1)
   - ha(1x1), outside_temperature(1x1), house_temperature(1x1)
