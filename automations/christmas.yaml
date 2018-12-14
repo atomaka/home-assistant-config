@@ -10,13 +10,17 @@
       entity_id: switch.outdoor_1_switch
     - service: homeassistant.turn_on
       entity_id: switch.outdoor_2_switch
+    - service: homeassistant.turn_on
+      entity_id: switch.christmas_tree
 - alias: Turn off Christmas lights in day
   hide_entity: true
   trigger:
     platform: time
     at: "01:00:00"
   action:
-    - service: homeassistant.turn_on
+    - service: homeassistant.turn_off
       entity_id: switch.outdoor_1_switch
-    - service: homeassistant.turn_on
+    - service: homeassistant.turn_off
       entity_id: switch.outdoor_2_switch
+    - service: homeassistant.turn_off
+      entity_id: switch.christmas_tree
