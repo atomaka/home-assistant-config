@@ -1,5 +1,4 @@
 - alias: Turn on Christmas lights at night
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: sun.sun
@@ -13,7 +12,6 @@
     - service: homeassistant.turn_on
       entity_id: switch.christmas_tree
 - alias: Turn off Christmas lights in day
-  hide_entity: true
   trigger:
     platform: time
     at: "01:00:00"

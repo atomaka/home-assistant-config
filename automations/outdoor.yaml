@@ -1,5 +1,4 @@
 - alias: Turn on outdoor lights at night
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: sun.sun
@@ -9,7 +8,6 @@
     service: homeassistant.turn_on
     entity_id: switch.landscape_lights_switch
 - alias: Turn off outdoor lights in day
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: sun.sun

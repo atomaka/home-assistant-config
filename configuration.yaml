@@ -80,3 +80,9 @@ zwave:
 rachio:
   api_key: !secret switch_rachio_api_key
   hass_url_override: !secret server_url
+
+tplink:
+  discovery: false
+  switch:
+    - host: !secret switches_office_light_switch_host
+    - host: !secret switches_office_plug_host

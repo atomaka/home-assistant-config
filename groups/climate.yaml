@@ -1,5 +1,4 @@
 Climate:
-  control: hidden
   entities:
     - sensor.weather_temperature
     - sensor.weather_precip_probability

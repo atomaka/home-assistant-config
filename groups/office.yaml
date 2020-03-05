@@ -1,5 +1,4 @@
 Office:
-  control: hidden
   entities:
     - switch.office_light
     - switch.office_plug

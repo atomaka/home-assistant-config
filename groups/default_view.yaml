@@ -1,5 +1,4 @@
 test_view:
-  view: yes
   entities:
     - group.battery_levels
     - group.safety_alarms
