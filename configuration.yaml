@@ -84,7 +84,17 @@ unifi:
       site: Default
       ssid_filter:
         - !secret wifi_ssid
-      dont_track_devices: true
+
+device_tracker:
+  - platform: unifi
+    host: !secret server_ip
+    port: 8443
+    verify_ssl: false
+    username: !secret device_tracker_unifi_username
+    password: !secret device_tracker_unifi_password
+    ssid_filter:
+    - !secret wifi_ssid
+    dont_track_devices: true
 
 discovery:
 
