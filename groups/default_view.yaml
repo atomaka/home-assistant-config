@@ -8,7 +8,6 @@ test_view:
     - group.living_room
     - group.master_bedroom
     - group.office
-    - group.media_players
     - group.outdoors
     - group.sprinklers
     - group.battery_levels
