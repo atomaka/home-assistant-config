@@ -17,3 +17,4 @@ dashboards/apps/__pycache__
 dashboards/compiled
 bin/*
 bin/
+known_devices.yaml

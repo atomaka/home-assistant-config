@@ -10,6 +10,10 @@ homeassistant:
       friendly_name: Roof Lining
     switch.outdoor_2_switch:
       friendly_name: Trees
+    person.andrew_tomaka:
+      entity_picture: /local/andrew.png
+    device_tracker.pixel_3:
+      entity_picture: /local/andrew.png
 
 frontend:
 
@@ -19,6 +23,11 @@ http:
   base_url: !secret http_base_url
   ip_ban_enabled: true
   login_attempts_threshold: 3
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - !secret http_trusted_proxies_1
+    - !secret http_trusted_proxies_2
+    - !secret http_trusted_proxies_3
 
 updater:
   include_used_components: true
@@ -61,13 +70,6 @@ cover:
   retain: true
   optimistic: true
 
-unifi:
-  controllers:
-    - host: !secret server_ip
-      site: Default
-      ssid_filter:
-        - !secret wifi_ssid
-
 discovery:
 
 zwave:
@@ -86,3 +88,26 @@ tplink:
   switch:
     - host: !secret switches_office_light_switch_host
     - host: !secret switches_office_plug_host
+
+mobile_app:
+
+lovelace:
+  mode: yaml
+
+zone:
+  - name: Lunch
+    latitude: !secret zone_lunch_1_latitude
+    longitude: !secret zone_lunch_1_longitude
+    radius: 100
+  - name: Work
+    latitude: !secret zone_work_1_latitude
+    longitude: !secret zone_work_1_longitude
+    radius: 200
+  - name: Bar
+    latitude: !secret zone_bar_1_latitude
+    longitude: !secret zone_bar_1_longitude
+    radius: 100
+  - name: Bar
+    latitude: !secret zone_bar_2_latitude
+    longitude: !secret zone_bar_2_longitude
+    radius: 100

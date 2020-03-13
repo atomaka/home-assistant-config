@@ -3,5 +3,3 @@ secrets.yaml
 *.conf
 *.log
 RF.txt
-
-known_devices.yaml
