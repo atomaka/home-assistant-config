@@ -55,21 +55,6 @@ switch: !include_dir_merge_list switches
 ecobee:
   api_key: !secret ecobee_api_key
 
-# garage
-# https://github.com/stjohnjohnson/smartthings-mqtt-bridge/issues/38
-# https://home-assistant.io/components/cover.mqtt/
-cover:
-  platform: mqtt
-  name: 'Garage'
-  state_topic: 'smartthings/Garage/contact'
-  command_topic: 'smartthings/Garage/door'
-  state_open: 'open'
-  state_closed: 'closed'
-  payload_open: 'open'
-  payload_close: 'closed'
-  retain: true
-  optimistic: true
-
 discovery:
 
 zwave:
