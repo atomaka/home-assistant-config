@@ -1,0 +1,4 @@
+garage_door:
+  duration: '00:30:00'
+night_garage_door:
+  duration: '00:20:00'

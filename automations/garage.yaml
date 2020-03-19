@@ -1,0 +1,77 @@
+# start timer when garage door opened
+- alias: Start timer if garage door opened
+  trigger:
+    - platform: state
+      entity_id: cover.linear_nortek_security_control_llc_gd00z_4_garage_door_opener_remote_controller_barrier_state_label
+      to: 'open'
+  action:
+    - service: timer.start
+      entity_id: timer.garage_door
+# start night timer when garage door opened if at night
+- alias: Start night timer if garage door opened and night
+  trigger:
+    - platform: state
+      entity_id: cover.linear_nortek_security_control_llc_gd00z_4_garage_door_opener_remote_controller_barrier_state_label
+      to: 'open'
+    - platform: state
+      entity_id: sun.sun
+      to: 'below_horizon'
+      from: 'above_horizon'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: timer.start
+      entity_id: timer.night_garage_door
+# cancel timer when garage door closed
+- alias: Cancel timer if garage door closes
+  trigger:
+    - platform: state
+      entity_id: cover.linear_nortek_security_control_llc_gd00z_4_garage_door_opener_remote_controller_barrier_state_label
+      to: 'closed'
+  action:
+    - service: timer.cancel
+      entity_id: timer.garage_door
+    - service: timer.cancel
+      entity_id: timer.night_garage_door
+# send message and restart timer when door is still opened
+- alias: Notify if garage door open after 30m
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.garage_door
+  condition:
+    condition: state
+    entity_id: cover.linear_nortek_security_control_llc_gd00z_4_garage_door_opener_remote_controller_barrier_state_label
+    state: 'open'
+  action:
+    - service: notify.mobile_app_andrew
+      data:
+        title: "Garage Door"
+        message: "The garage door has been open for 30 minutes or more"
+    - service: timer.start
+      entity_id: timer.garage_door
+# close door and stop timer if it is 60 minutes after dark
+- alias: Close if dark and garage door open after 20m
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.night_garage_door
+  condition:
+    - condition: state
+      entity_id: cover.linear_nortek_security_control_llc_gd00z_4_garage_door_opener_remote_controller_barrier_state_label
+      state: 'open'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: cover.close_cover
+      data:
+        entity_id: cover.linear_nortek_security_control_llc_gd00z_4_garage_door_opener_remote_controller_barrier_state_label
+    - service: notify.mobile_app_andrew
+      data:
+        title: "Garage Door"
+        message: "Automatically closing garage door after 20 minutes"
